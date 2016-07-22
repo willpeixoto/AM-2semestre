@@ -9,7 +9,6 @@ var app = express(); 						// // defimos que nosso app usara o express;
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
 
-var Tag = require('../app/models/tag');
 //configurar nosso app para usar a biblioteca de bodyparser que nos auxilia a obter os dados que sao enviados para a nossa api
 app.use(bodyParser.urlencoded({ extended:true}));
 app.use(bodyParser.json());
@@ -71,6 +70,7 @@ mongoose.connect('mongodb://<marmotas>:<.....>@ds027425.mlab.com:27425/node_ardu
 //MODELS
 //=====================
 
+var Tag = require('../app/models/tag');
 
 // INICIANDO O SERVIDOR
 // ====================
