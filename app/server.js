@@ -65,7 +65,11 @@ app.use('/api', router);
 
 //MONGOOSE
 //====================
-mongoose.connect('mongodb://mmts:mmts123@ds027425.mlab.com:27425/node_arduino'); // connectando a Base mongo 
+//mongodb://mmts:mmts123@ds041496.mlab.com:41496/am-arduino
+//mongoose.connect('mongodb://mmts:mmts123@ds027425.mlab.com:27425/node_arduino'); // connectando a Base mongo 
+mongoose.connect('mongodb://mmts:mmts123@ds041496.mlab.com:41496/am-arduino'); // connectando a Base mongo 
+//mongoose.connect('mongodb://jobfinder-course:erick@ds055515.mongolab.com:55515/jobfinder-course')
+
 
 //MODELS
 //=====================
