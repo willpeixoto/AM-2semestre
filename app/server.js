@@ -32,7 +32,7 @@ router.get('/', function(req, res) {
 
 router.route('/tags')
     .post(function(req, res) {
-        console.log(req);
+        console.log(req.body);
         var tag = new Tag(); //model
         tag.IdTag= req.body.IdTag;
                  console.log(req.body.IdTag);
