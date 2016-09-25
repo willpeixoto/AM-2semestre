@@ -66,9 +66,8 @@ app.use('/api', router);
 //MONGOOSE
 //====================
 //mongodb://mmts:mmts123@ds041496.mlab.com:41496/am-arduino
-//mongoose.connect('mongodb://mmts:mmts123@ds027425.mlab.com:27425/node_arduino'); // connectando a Base mongo 
-//mongoose.connect('mongodb://mmts:mmts123@ds041496.mlab.com:41496/am-arduino'); // connectando a Base mongo 
-//mongoose.connect('mongodb://jobfinder-course:erick@ds055515.mongolab.com:55515/jobfinder-course')
+//mongoose.connect('mongodb://mmts:mmts123@ds027425.mlab.com:27425/node_arduino'); // connectando a Base mongo will
+//mongoose.connect('mongodb://mmts:mmts123@ds041496.mlab.com:41496/am-arduino'); // connectando a Base mongo japa
 /* 
  * Mongoose by default sets the auto_reconnect option to true.
  * We recommend setting socket options at both the server and replica set level.
@@ -78,7 +77,7 @@ app.use('/api', router);
 var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
                 replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };       
  
-var mongodbUri = 'mongodb://mmts:mmts123@ds041496.mlab.com:41496/am-arduino';
+var mongodbUri = 'mongodb://mmts:mmts123@ds027425.mlab.com:27425/node_arduino';
  
 mongoose.connect(mongodbUri, options);
 var conn = mongoose.connection;             
