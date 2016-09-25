@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var TagSchema   = new Schema({
     IdTag: String,
     IdArduino : String,
-    DataLeitura :  { type: Date, default: new Date.now }
+    DataLeitura :  { type: Date, default: Date.now }
 },
 {
    timestamps: true
