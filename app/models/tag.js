@@ -5,12 +5,11 @@ var Schema = mongoose.Schema;
 var TagSchema   = new Schema({
     IdTag: String,
     IdArduino : String,
-    DataLeitura :  { type: new Date()}
+    DataLeitura :  { type: Date, default: new Date.now }
 },
 {
-    timestamps: true
+   timestamps: true
 }
-
 );
 
 module.exports = mongoose.model('Tag', TagSchema);
