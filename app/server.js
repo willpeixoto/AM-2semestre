@@ -27,7 +27,7 @@ router.use(function (req,res, next) {
 
 // test da rota para ter certeza que a rota esta funcionando acessando localhost:8080/api)
 router.get('/', function(req, res) {
-    res.json({ message: 'Opa! ta funcionando porra!' });   
+    res.json({ message: 'Opa! estamos no ar!' });   
 });
 
 router.route('/tags')
