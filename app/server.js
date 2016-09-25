@@ -21,7 +21,7 @@ var router = express.Router();   // inicio o Express Router
 
 router.use(function (req,res, next) {
      // do logging
-    console.log('opa uma Requisicao Time: ', Date.now());
+    //console.log('opa uma Requisicao Time: ', Date.now());
     next(); // 
 });
 
@@ -32,19 +32,19 @@ router.get('/', function(req, res) {
 
 router.route('/tags')
     .post(function(req, res) {
-        console.log(req);
+        //console.log(req.body);
         var tag = new Tag(); //model
         tag.IdTag= req.body.IdTag;
-                 console.log(req.body.IdTag);
+                 //console.log(req.body.IdTag);
         tag.IdArduino = req.body.IdArduino;
-                console.log(req.body.IdArduino);
+                //console.log(req.body.IdArduino);
 
         tag.save(function(err) {
-            console.log('erroUUU');
+            //console.log('erroUUU');
             if (err)
                 res.send(err);
 
-console.log('PASSOUUUU');
+console.log('Tag registrada!');
             res.json({ message: 'Tag registrada!' });
         });
     })
@@ -85,7 +85,7 @@ var conn = mongoose.connection;
 conn.on('error', console.error.bind(console, 'connection error:'));  
  
 conn.once('open', function() {
-  console.log('ha mulek');                      
+  //console.log('ha mulek');                      
 });
 
 
@@ -100,4 +100,4 @@ var Tag = require('../app/models/tag');
 // ====================
 
 app.listen(port);
-console.log('node rodando na porta ' + port);
+//console.log('node rodando na porta ' + port);
