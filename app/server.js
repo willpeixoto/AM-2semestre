@@ -38,6 +38,7 @@ router.route('/tags')
                  //console.log(req.body.IdTag);
         tag.IdArduino = req.body.IdArduino;
                 //console.log(req.body.IdArduino);
+        tag.DataLeitura = new Date(Date.now());
 
         tag.save(function(err) {
             //console.log('erroUUU');
