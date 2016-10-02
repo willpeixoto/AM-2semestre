@@ -79,7 +79,7 @@ console.log(tes);
         var user = new User();
             user.IdTag = req.body.IdTag;
             user.IdDispotivivo = req.body.IdArduino;
-            user.dataLeitura = getDate();
+            user.dataLeitura = tes;
             user.horaLeitura = new Date().getTime();
             user.tipo = req.body.tipo;
             user.nome = req.body.nome;
