@@ -56,10 +56,10 @@ router.route('/tags')
     })
 
     .get(function (req, res) {
-        Tag.find(function (err, tags) {
+        User.find(function (err, user) {
             if (err)
                 res.send(err);
-            res.json(tags);
+            res.json(user);
         });
     });
 
