@@ -4,8 +4,8 @@ var Schema = mongoose.Schema;
 var UserSchema   = new Schema({
     idTag : String,
     idArduino : String,
-    dataLeitura :  { type: Date},
-    horaLeitura : {type:Date},
+    dataLeitura :  { type: Date, default: Date.now },
+    horaLeitura : { type: Date, default: Date.now },
     local : String,
     tipo : String,
     //data : { type: Date, default: Date.now },
