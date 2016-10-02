@@ -4,21 +4,27 @@ var Schema = mongoose.Schema;
 var UserSchema   = new Schema({
     idTag : String,
     idArduino : String,
-    dataLeitura :  { type: Date, default: Date.now },
-    horaLeitura : { type: Date, default: Date.now },
+    ano : Number,
+    mes : Number,
+    dia : Number,
+    Hora : Number,
+    Minuto : Number,
+    diaSemana : String,
     local : String,
     tipo : String,
-    //data : { type: Date, default: Date.now },
-    //hora : { type: Time, default: Date.now },
     nome : String,
     idade : Number,
-    faixaEtaria : Number,
     genero : String,
     endereco : String,
-    atendimento : Boolean,
+    bairro : String,
+    cidade : String,
+    cep : Number,
+    deficiencia : Boolean,
     descAtend : String,
     protocolo : String,
-    estacao : String
+    estacao : String,
+    linha : String,
+    tpTransporte : String
 });
 
 module.exports = mongoose.model('User', UserSchema);
