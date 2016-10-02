@@ -48,9 +48,8 @@ router.route('/tags')
         }
         else{
             console.log(response.statusCode );
-                    console.log(body);
                     console.log('err: ' + error);
-                    res.json({ message: 'ocorreu um erro' });
+                    res.json({ message: 'ocorreu um erro' + body });
         }
         });
     })
@@ -129,6 +128,7 @@ function parseRestMongo(body,idTag, date, res) {
     user.estacao = body.dispositivo.servico.nome; //nome da estacao
     user.linha = body.dispositivo.servico.linha;
     //salvo o usuario...
+    console.log(user);
        user.save(function (err) {
             if (err)
                 res.send(err);
