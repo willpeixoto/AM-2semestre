@@ -109,7 +109,7 @@ function parseRestMongo(body,idTag, date, res) {
     user.IdDispotivivo = body.dispositivo.id;
     user.ano = date.getFullYear();
     user.mes = ((date.getMonth() + 1 ) < 10 ? "0" : "" + (date.getMonth() + 1));
-    user.dia = date.getDate() < 10 ? "0" : "" + date.getDate();
+    user.dia = date.getDate();
     user.Hora = date.getHours() < 10 ? "0" : "" + date.getHours();
     user.Minuto = date.getMinutes() < 10 ? "0" : "" + date.getMinutes();
     user.seg = date.getSeconds() < 10 ? "0" : "" + date.getSeconds();
