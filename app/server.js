@@ -30,7 +30,8 @@ router.route('/tags')
        var date = new Date();
         var tag = new Tag(); //model
         tag.IdTag = req.body.IdTag;
-        tag.IdArduino = req.body.IdDispositivo;
+        tag.IdArduino = "C8653DFA03B74E119E9317CFE9E3154E";
+        //tag.IdArduino = req.body.IdDispositivo;
 
         var options = {
         uri: 'http://service-am.mybluemix.net/rest/Usuario/Iniciar',
