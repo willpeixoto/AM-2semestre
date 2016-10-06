@@ -44,7 +44,7 @@ router.route('/tags')
 
         request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            //console.log(body) // Print the shortened url.
+            console.log(body) // Print the shortened url.
             parseRestMongo(body, tag.IdTag, date, res);
         }
         else{
