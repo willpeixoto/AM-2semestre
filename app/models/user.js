@@ -24,7 +24,21 @@ var UserSchema   = new Schema({
     protocolo : String,
     estacao : String,
     linha : String,
-    tpTransporte : String
+    tpTransporte : String,
+    situacao : String,
+    nomeColaborador : String,
+    colaboradorServicoId : String,
+    colaboradorServicoNome : String,
+    colaboradorServicoTipo : String,
+    colaboradorServicoDescricao : String,
+    colaboradorServicoLinha : String,
+    servicoOrigemId : String,
+    servicoOrigemNome : String,
+    servidoOrigemTipo : String,
+    servicoOrigemDesc : String,
+    servicoOrigemLinha : String,
+
+
 });
 
 module.exports = mongoose.model('User', UserSchema);

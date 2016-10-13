@@ -134,7 +134,6 @@ function parseRestMongo(body,idTag, date, res) {
     //user.protocolo = body.protocolo; //caso haja nro protocolo onde ? 
     user.estacao = body.dispositivo.servico.nome; //nome da estacao
     user.linha = body.dispositivo.servico.linha;
-    //salvo o usuario...
     console.log(user);
        user.save(function (err) {
             if (err)
@@ -176,6 +175,19 @@ function parseRestMongoDef(body,idTag, date, res) {
     //user.protocolo = body.protocolo; //caso haja nro protocolo onde ? 
     user.estacao = body.dispositivo.servico.nome; //nome da estacao
     user.linha = body.dispositivo.servico.linha;
+    user.situacao = boby.situacao;
+    user.nomeColaborador = body.colaborador.nome + " " +  body.colaborador.sobrenome;
+    user.colaboradorServicoId = body.colaborador.servico.id;
+    user.colaboradorServicoNome = body.colaborador.servico.nome;
+    user.colaboradorServicoTipo = body.colaborador.servico.tipo;
+    user.colaboradorServicoDescricao = body.colaborador.servico.descricao;
+    user.colaboradorServicoLinha = body.colaborador.servico.linha;
+    user.servicoOrigemId = body.servicoOrigem.id;
+    user.servicoOrigemNome = body.servicoOrigem.nome;
+    user.servidoOrigemTipo = body.servicoOrigem.tipo;
+    user.servicoOrigemDesc = body.servicoOrigem.descricao;
+    user.servicoOrigemLinha = body.servicoOrigem.linha;
+    
     //salvo o usuario...
     console.log(user);
        user.save(function (err) {
