@@ -104,10 +104,10 @@ app.listen(port);
 
 function parseRestMongo(body,idTag, date, res) {
     console.log("function");
-    var age = (body.usuario.dataNascimento.year,
+    /*var age = (body.usuario.dataNascimento.year,
                              body.usuario.dataNascimento.month,
-                             body.usuario.dataNascimento.dayOfMonth);
-    var idadeUser = getAge(age.toString());   
+                             body.usuario.dataNascimento.dayOfMonth);*/
+    //var idadeUser = getAge(age.toString());   
     var days = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-Feira','Sexta-feira','Sabado'];    
     var weekDay = days[ date.getDay() ];
     var user = new User();
@@ -121,7 +121,7 @@ function parseRestMongo(body,idTag, date, res) {
     user.seg = date.getSeconds();
     user.diaSemana  = weekDay;
     user.nome = body.usuario.nome + " " + body.usuario.sobrenome; 
-    user.idade = idadeUser;
+    //user.idade = idadeUser;
     user.genero = body.usuario.genero;
     user.endereco = body.usuario.endereco;
     user.bairro = body.usuario.bairro;
