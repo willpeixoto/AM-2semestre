@@ -45,7 +45,13 @@ router.route('/tags')
         request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log(body) // Print the shortened url.
-            parseRestMongo(body, tag.IdTag, date, res);
+            if(!body.deficiencia){
+                parseRestMongo(body, tag.IdTag, date, res);
+            }
+            else{
+                console.log(response.statusCode);
+                parseRestMongoDef(body, tag.IdTag, date, res);
+            }
         }
         else{
             console.log(response.statusCode );
@@ -138,6 +144,48 @@ function parseRestMongo(body,idTag, date, res) {
         });
 }
 
+function parseRestMongoDef(body,idTag, date, res) {
+    console.log("function");
+    var age = (body.usuario.dataNascimento.year,
+                             body.usuario.dataNascimento.month,
+                             body.usuario.dataNascimento.dayOfMonth);
+    var idadeUser = parseInt(getAge(age.toString()));   
+    var days = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-Feira','Sexta-feira','Sabado'];    
+    var weekDay = days[ date.getDay() ];
+    var user = new User();
+    user.IdTag = idTag;
+    user.IdDispotivivo = body.dispositivo.id;
+    user.ano = date.getFullYear();
+    user.mes = ((date.getMonth() + 1 ) < 10 ? "0" : "" + (date.getMonth() + 1));
+    user.dia = date.getDate();
+    user.Hora = date.getHours();
+    user.Minuto = date.getMinutes();
+    user.seg = date.getSeconds();
+    user.diaSemana  = weekDay;
+    user.nome = body.usuario.nome + " " + body.usuario.sobrenome; 
+    user.idade = idadeUser;
+    user.genero = body.usuario.genero;
+    user.endereco = body.usuario.endereco;
+    user.bairro = body.usuario.bairro;
+    user.cidade = body.usuario.cidade;
+    user.cep = body.usuario.cep;
+    user.deficiencia = body.usuario.deficiencia;
+    user.tipo = body.dispositivo.servico.tipo; //entrada saida integracao
+    user.local = body.dispositivo.nome; // local do dispositivo EntradaCestacaoSe
+    user.descAtend = body.dispositivo.servico.descricao; //descricao do atendimento
+    //user.protocolo = body.protocolo; //caso haja nro protocolo onde ? 
+    user.estacao = body.dispositivo.servico.nome; //nome da estacao
+    user.linha = body.dispositivo.servico.linha;
+    //salvo o usuario...
+    console.log(user);
+       user.save(function (err) {
+            if (err)
+                res.send(err);
+            res.json({ message: 'User registrado!' });
+            console.log('user Registrado!');
+        });
+}
+
 function getAge(dateString) {
     var today = new Date();
     var birthDate = new Date(dateString);
@@ -148,3 +196,4 @@ function getAge(dateString) {
     }
     return age;
 }
+
